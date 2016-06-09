@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "htth://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <meta name="Author" content="Hriday Dubey"/>
+        </f:facet>
+        <link rel="icon" type="image/png" href="#{request.contextPath}/Logo.png"/>
+
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/default.css" />
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+        <title>Welcome to Bill desk </title>
+        <style>
+            *
+            {
+                margin: 0px;
+                padding:0px;               
+            } 
+            .fa-user{
+                color: #036fab;
+            }
+            .fa-key{
+                color: #036fab;
+            }
+            .ui-layout, .ui-layout-doc, .ui-layout-unit, .ui-layout-wrap, .ui-layout-bd, .ui-layout-hd{
+                border: none;
+            }
+            .ui-layout-center,.ui-layout-center .ui-layout-unit-content  {
+                overflow: visible !important;
+                background-color: #c1e8d3 ; 
+            }
+
+        </style>
+
+    </h:head>
+    <h:body  >
+        <p:layout fullPage="true" >          
+
+
+            <p:layoutUnit position="center"   gutter="0" >                
+                <h:form id="login-form" >
+                    <p:growl id="growl"  life="3000" /> 
+ 
+                    <div class="ui-grid ui-grid-responsive"  >
+                        <div class="ui-grid-row">
+                            <div style="box-shadow: 10px 10px 5px #888888; background: aliceblue; margin-left:  245px; margin-top: 30px;margin-bottom: 2px; "><p:panel  style="background-color: aliceblue;height: 558px;  border-color:  aliceblue; ">
+
+                                    <p:panel  style="background-color: aliceblue;  border-color:  aliceblue;  width: 300px ; margin-top: 35%">
+                                        <h:outputText value="EBEX LOGIN" style="color: #036fab;  font-size: xx-large;padding-left: 18%"/>
+                                    </p:panel>
+
+                                    <p:separator style=" height:10px;  width: 305px;border-color:aliceblue;background:#036fab  " />
+
+
+                                    <p:panel  style="background-color: aliceblue;  border-color:  aliceblue; padding-top: 5% ;
+                                              padding-left: 14%;  padding-bottom: 10%; ">
+
+                                        <h:panelGrid id="loginPanel"  cellspacing="4"  columns="2" >                          
+                                            <i class="fa fa-user fa-2x"></i>
+                                            <p:inputText id="username" value="#{login.user}" placeholder="username"   style=" background: snow ;border-radius: 5px"/>
+                                            <p:spacer></p:spacer>
+                                            <p:message for="username" ></p:message>
+                                            <i class="fa fa-key fa-2x"></i>
+                                            <p:password id="password" value="#{login.pwd}"  feedback="false" placeholder="password"  style=" background: snow ; border-radius: 5px"/>
+                                            <p:spacer></p:spacer>
+                                            <p:message for="password"></p:message>
+                                            <p:spacer></p:spacer>
+                                            <p:commandButton update="growl"  value="Login" action="#{login.validateUsernamePassword()}"   style=" background:#006699 ; font-size: small;width: 80px ;height: 27px; color: #ffffff;border-radius: 5px" />
+                                        </h:panelGrid>   
+
+                                    </p:panel>
+
+                                </p:panel></div>
+                            <div style="box-shadow: 10px 10px 5px #888888;background: white; margin-top: 30px;margin-bottom: 2px; " ><p:graphicImage style=""  value="/Ebex.jpg"/></div>
+
+                        </div>
+                    </div>
+                    <center>Copyright © 2016 Essel Business Excellence Services Limited, An Essel Group Company :: Powered by - Ebex DMS
+                    </center>
+                </h:form>   
+            </p:layoutUnit>
+
+        </p:layout>
+    </h:body>
+</html>

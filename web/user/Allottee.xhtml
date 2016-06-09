@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <meta name="Author" content="Hriday Dubey"/>
+        </f:facet>
+        <link rel="icon" type="image/png" href="#{request.contextPath}/Logo.png"/>
+        <title>Task allotment  </title>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/default.css" />
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
+
+
+    </h:head>
+
+    <f:view contentType="text/html">
+        <h:body >
+            <p:layout fullPage="true"  >
+                <p:layoutUnit position="north" maxSize="105" minSize="105" gutter="0" resizable="true" >
+
+                    <ui:include src="/user/Header.xhtml" />
+                </p:layoutUnit>
+                <p:layoutUnit position="east" size="150" gutter="0"  >
+
+                </p:layoutUnit>
+                <p:layoutUnit position="west" size="150" gutter="0"  >
+
+                </p:layoutUnit>
+                <p:layoutUnit position="center" gutter="0"  >                    
+                    <h:form id="form">
+                        <p:dataGrid var="car" value="#{carService.createCars(login.user)}" columns="3" layout="grid"
+                                    id="data" emptyMessage="No junior found"  >        
+
+                            <p:panel    style="text-align:left;width: 320px;border-radius: 15px;box-shadow:.8px .8px 2px 2px #AFAFAF;background:  #00bcd4;border:#00bcd4 ; ">
+                                <h:panelGrid columns="2" >                                   
+                                    <p:commandLink   update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail">
+                                        <p:graphicImage value="/ProfilePic/#{car.imagePath}"/>
+                                        <f:setPropertyActionListener value="#{car}" target="#{dataGridView.selectedCar}" />
+                                    </p:commandLink>
+                                    <h:panelGrid columns="1" > 
+                                        <h:outputText value="#{car.firstname} #{car.lastname}" style="color: white;font-size: large"/>
+                                        <h:outputText value="Overall Score:" style="color: white;font-size: small"/>
+                                    </h:panelGrid>
+
+                                </h:panelGrid>
+                            </p:panel>
+
+                        </p:dataGrid>
+
+                        <p:dialog style="background-color: #c1e8d3!important;   border-color: #c1e8d3!important;" widgetVar="carDialog"    showEffect="fade" hideEffect="fade"  >
+
+                            <p:outputPanel id="carDetail" >
+                                <h:panelGrid  columns="1"   columnClasses="label,value">
+                                    <h:panelGrid  columns="3">
+                                        <p:panelGrid  columns="1">
+                                            <p:graphicImage value="/ProfilePic/#{dataGridView.selectedCar.imagePath}"  /> 
+                                        </p:panelGrid>
+
+                                        <p:panelGrid  columns="2" style="margin-top: 95px; ">
+                                            <h:outputText value="Name:" />
+                                            <h:outputText value="#{dataGridView.selectedCar.firstname} #{dataGridView.selectedCar.lastname}" />
+
+                                            <h:outputText value="Score:" />
+                                            <h:outputText value="#{dataGridView.selectedCar.imagePath}" />
+                                        </p:panelGrid>
+                                        <h:panelGrid  columns="5" style="margin-top: 110px; ">
+
+                                        <p:selectOneMenu   value="#{user.region}" style="width:125px;  ">
+                                            <f:selectItem itemLabel="Select Process" itemValue="" />
+                                            <f:selectItem itemLabel="AP" itemValue="AP" />
+                                            <f:selectItem itemLabel="HR" itemValue="Mumbai" />
+                                            <f:selectItem itemLabel="Backlog" itemValue="Kolkata" /> 
+                                        </p:selectOneMenu>
+
+
+
+                                        <p:selectOneMenu   value="#{user.region}" style="width:125px">
+                                            <f:selectItem itemLabel="Select Task" itemValue="" />
+                                            <f:selectItem itemLabel="Indexing" itemValue="Indexing" />
+                                            <f:selectItem itemLabel="Scanning" itemValue="Scanning" />
+                                            <f:selectItem itemLabel="Documentation" itemValue="Documentation" />
+                                            <f:selectItem itemLabel="Document Searching" itemValue="Document Searching" />
+                                            <f:selectItem itemLabel="DEQC" itemValue="DEQC" />
+                                            <f:selectItem itemLabel="User Handling" itemValue="User Handling" />
+                                            <f:selectItem itemLabel="Upload In PHR" itemValue="Upload In PHR" />
+                                            <f:selectItem itemLabel="HR File MIS" itemValue="HR File MIS" />
+                                            <f:selectItem itemLabel="Finance File MIS" itemValue="Finance File MIS" />
+                                        </p:selectOneMenu>
+
+
+                                        <p:inputMask mask="?9999999999" placeholder="volume" style="width:125px" />
+
+
+                                        <p:selectOneMenu  value="#{user.region}" style="width:125px">
+                                            <f:selectItem itemLabel="Select Time" itemValue="" />
+                                            <f:selectItem itemLabel="0.5 Hour" itemValue="0.5 Hour" />
+                                            <f:selectItem itemLabel="1 Hour" itemValue="1 Hour" />
+                                            <f:selectItem itemLabel="2 Hour" itemValue="2 Hour" />
+                                            <f:selectItem itemLabel="3 Hour" itemValue="3 Hour" />
+                                            <f:selectItem itemLabel="4 Hour" itemValue="4 Hour" /> 
+                                        </p:selectOneMenu>
+
+
+                                        <p:commandButton value="Add" icon="ui-icon-plus"/>
+
+                                    </h:panelGrid>
+                                    </h:panelGrid>
+                                     
+                                    <p:dataTable style="width: 1000px">
+                                        <p:column headerText="Process" >
+
+
+
+                                        </p:column>
+                                        <p:column headerText="Task" >
+
+                                        </p:column>
+                                        <p:column headerText="Volume" >
+
+                                        </p:column>
+                                        <p:column headerText="Time" >
+
+                                        </p:column> 
+                                    </p:dataTable>                                   
+                                </h:panelGrid>
+                            </p:outputPanel>
+                        </p:dialog>
+                    </h:form>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" gutter="0"  >
+                    <ui:include src="/user/Footer.xhtml" />
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+
+    </f:view>
+
+</html>

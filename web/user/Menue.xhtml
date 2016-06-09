@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition> 
+            <h:form >  
+                <style>
+
+                    ul.ui-menu-list li a:hover,ul.ui-menu-list li a.ui-state-active,ul.ui-menu-list li a.ui-state-hover
+                    {
+                        background:  cyan !important;
+                        background:  cyan !important;
+                        border-color: cyan !important;
+                        color: dodgerblue;
+
+                    }
+
+                    ul.ui-menu-list li a span.ui-menuitem-icon
+                    {
+                        color:#6ce26c !important;
+                    }
+
+                </style>
+
+
+
+                <p:menubar   style="margin-top: 60px;border-color: white; margin-bottom: 0px;white-space: nowrap;width: 980px; ">
+                    <p:menuitem style="padding-right: 20px;padding-left: 10px;font-size: small"  value="Home" url="Welcome.jsf" icon="ui-icon-home" />
+
+
+                    <p:submenu  label="Task" style="font-size: small" icon="ui-icon-suitcase"  >
+                        <p:menuitem value="Assigned Task" url="Allotted.jsf" icon="ui-icon-arrowreturnthick-1-w" />
+                        <p:submenu  label="Team" style="font-size: small" icon="ui-icon-flag"  >
+                            <p:menuitem value="Assign Task" url="Allottee.jsf" icon="ui-icon-arrowreturnthick-1-e" />
+                            <p:menuitem value="Task Status" url="Allotted.jsf" icon="ui-icon-star" />
+                        </p:submenu>
+                    </p:submenu>
+
+                    <p:submenu label="Change Process" style="font-size: small" icon="ui-icon-copy"   >
+                        <p:menuitem value="Billdesk" icon="ui-icon-newwin"  target="_blank" url="http://billdesk.esselgroup.com" />
+                        <p:menuitem value="Workflow" target="_blank" icon="ui-icon-newwin" url="http://14.140.252.206/webdesktop" /> 
+                    </p:submenu>
+
+                    <p:submenu label="Setting" style="font-size: small"  icon="ui-icon-gear"   > 
+                        <p:menuitem value="Profile" url="Profile.jsf" icon="ui-icon-person"  />
+                        <p:menuitem  value="Change Password" id="resetpass"  icon="ui-icon-key"  />
+
+                    </p:submenu>
+                    <p:menuitem value="Help" url="/manager/Inward Edit.jsf" icon="ui-icon-help"  />
+
+                </p:menubar>
+                <p:overlayPanel  id="reset" style="background: lemonchiffon"  for="resetpass" hideEffect="fade" dynamic="true" >                           
+
+
+                    <h:panelGrid headerClass="Change Password" columns="1" style="background: lemonchiffon" id="matchGrid" cellpadding="5">                                
+
+                        <p:inputText value="#{resetPass.olpassword}" required="true" placeholder="Current Password" label="Current Password"/>
+                        <p:spacer/>
+                        <p:password id="feedback" value="#{resetPass.newPassword}" match="pwd2" placeholder="New Password" label="New Password" required="true" feedback="true" />
+                        <p:spacer/>
+                        <p:password id="pwd2" value="#{resetPass.newPassword}" label="Confirm Password" placeholder="Confirm Password" required="true" />                       
+                        <p:spacer/>
+                        <p:commandButton style="border-radius: 25px;background: aqua " update=":formheader:messagesheader" value="Reset" action="#{resetPass.reste(login.user)}"  />
+                    </h:panelGrid>
+
+                </p:overlayPanel>
+
+            </h:form>
+        </ui:composition>	
+    </body>
+</html>

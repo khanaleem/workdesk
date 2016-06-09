@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition> 
+            <h:form>
+                <p:growl id="messages" showDetail="true" />
+
+                <h:panelGrid columns="3">
+                    <h:panelGrid columns="1" style=" padding-bottom: 0px" >
+                        <p:graphicImage  value="/Logo_1.png"/>
+
+                    </h:panelGrid>
+                    <h:panelGrid columns="7" cellpadding="0" style="padding-left: 850px; margin:0px">
+                         <h:panelGrid columns="2"   >
+                            <h:outputText value="Welcome's :" style="color: #036fab; font-size:small "/>
+                            <h:outputText value="#{login.user}" style="color: #23a38f; font-size:small  "/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="2"   >
+                            <i class="fa fa-map-marker fa-2x" style="color: brown"></i>
+                            <h:outputText value="#{insertAPBeans.Region(login.user)}"  style="color: #045491;font-size: small "/>
+                        </h:panelGrid>
+                        <i class="fa fa-ellipsis-v fa-2x" style="color: #036fab"/>
+                        <h:panelGrid columns=""   >
+                            <h:outputText value="ADMIN" style="color: red; font-size:small "/>
+                        </h:panelGrid>
+                       
+                        
+                        <i class="fa fa-ellipsis-v fa-2x" style="color: #036fab"/>
+                        <h:panelGrid columns="4"  >                        
+                        <p:button  id="home" href="/admin/welcome.jsf" icon="ui-icon-home" />    
+                        <p:tooltip   for="home" value="Home" />
+                        <p:commandButton id="button" action="#{login.logout()}" icon="ui-icon-extlink" />
+                        <p:tooltip   for="button" value="Logout" />
+                        </h:panelGrid>
+                    </h:panelGrid>
+                </h:panelGrid>
+            </h:form>
+        </ui:composition>	
+    </body>
+</html>

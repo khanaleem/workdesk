@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <meta name="Author" content="Hriday Dubey"/>
+        </f:facet>
+        <link rel="icon" type="image/png" href="#{request.contextPath}/Logo.png"/>
+        <title>User Dashboard</title>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/default.css" />
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+<style>
+ 
+
+ 
+</style>
+        <script>
+            google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawStacked);
+
+function drawStacked() {
+      var data = google.visualization.arrayToDataTable([
+        ['Score', 'Accuracy %', 'Error %'],
+        ['Score', 80, 20] 
+      ]);
+
+      var options = { 
+          width: 410,
+            height: 50, 
+            backgroundColor: '#c1e8d3',
+        chartArea: {  width: '100%'},
+        isStacked: true,
+        hAxis: { 
+          minValue: 0
+        },
+        colors: ['#66FFFF', '#FF6600' ],
+        vAxis: { 
+             maxValue: 100
+        }
+      };
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+        </script>
+    </h:head>
+
+    <f:view contentType="text/html">
+        <h:body >
+            <p:layout fullPage="true"  >
+                <p:layoutUnit position="north" maxSize="105" minSize="105" gutter="0" resizable="true"  >
+
+                    <ui:include src="/user/Header.xhtml" />
+                </p:layoutUnit>
+                <p:layoutUnit position="east" size="150" gutter="0"  >
+
+                </p:layoutUnit>
+                <p:layoutUnit position="west" size="150" gutter="0"  >
+
+                </p:layoutUnit>
+                <p:layoutUnit position="center" gutter="0"  >                    
+
+                    <h:panelGrid  columns="1"   columnClasses="label,value">
+                        <h:panelGrid  columns="2">
+                            <h:panelGrid  columns="1">
+                                <p:graphicImage value="/ProfilePic/#{login.imagePath}"/> 
+                            </h:panelGrid> 
+                            <h:panelGrid  columns="2" style="margin-top: 55px; ">
+
+                                <div id="chart_div"></div>
+                            </h:panelGrid>
+
+
+                        </h:panelGrid>
+                        <h:panelGrid   style="background: linen" columns="4">
+                            <h:panelGrid cellspacing="40" style="background: wheat" columns="1">
+                                <h:outputText value="Usder ID:"/>
+                                <h:outputText value="Name:"/>
+                                <h:outputText value="Email ID:"/>
+                                <h:outputText value="Contact No.:"/>
+                                <h:outputText value="Designation:"/>
+                                <h:outputText value="Supervoiser:"/>                        
+                            </h:panelGrid>
+                            <h:panelGrid cellspacing="40" style="background: linen;width: 380px" columns="1">
+                                <h:outputText value="80000161"/>
+                                <h:outputText value="Madhuram Timalsina"/>
+                                <h:outputText value="madhuram.timalsina@esselgroup.com"/>
+                                <h:outputText value="9999780266 "/>
+                                <h:outputText value="Assistant Manage"/>
+                                <h:outputText value="Ravish Khanna"/>                        
+                            </h:panelGrid>
+                            <h:panelGrid   cellspacing="40" style="margin: 0px;background: wheat" columns="1">
+                                <h:outputText value="Department: "/>
+                                <h:outputText value="Company:"/>
+                                <h:outputText value="Date Of Birth:"/> 
+                                <h:outputText value="__ "/>  
+                                <h:outputText value="__ "/>  
+                                <h:outputText value="__ "/>  
+                            </h:panelGrid>
+                            <h:panelGrid cellspacing="40" style="background: linen;width: 380px" columns="1">
+                                <h:outputText value=" "/>
+                                <h:outputText value=" "/>
+                                <h:outputText value=" "/>
+                                <h:outputText value=" "/>
+                                <h:outputText value=" "/>
+                                <h:outputText value=" "/>                        
+                            </h:panelGrid>
+                        </h:panelGrid>                                                   
+                    </h:panelGrid>      
+
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" gutter="0"  >
+                    <ui:include src="/user/Footer.xhtml" />
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+
+    </f:view>
+
+</html>

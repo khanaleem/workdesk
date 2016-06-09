@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <meta name="Author" content="Hriday Dubey"/>
+        </f:facet>
+        <link rel="icon" type="image/png" href="#{request.contextPath}/Logo.png"/>
+        <title>User Dashboard</title>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/default.css" />
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
+        
+         
+    </h:head>
+
+    <f:view contentType="text/html">
+        <h:body >
+            <p:layout fullPage="true"  >
+                <p:layoutUnit position="north" maxSize="105" minSize="105" gutter="0" resizable="true"  >
+
+                    <ui:include src="/user/Header.xhtml" />
+                </p:layoutUnit>
+                <p:layoutUnit position="east" size="150" gutter="0"  >
+                
+            </p:layoutUnit>
+                <p:layoutUnit position="center" gutter="0"  >                    
+                     
+                </p:layoutUnit>
+                 <p:layoutUnit position="west" size="150" gutter="0"  >
+                 
+            </p:layoutUnit>
+                <p:layoutUnit position="south" gutter="0"  >
+                <ui:include src="/user/Footer.xhtml" />
+            </p:layoutUnit>
+            </p:layout>
+        </h:body>
+
+    </f:view>
+
+</html>

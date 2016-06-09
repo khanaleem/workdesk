@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition> 
+            <h:form>
+                <p:menu  style="margin: auto; width: 94%">
+                    <p:submenu label="Report" icon="ui-icon-check">
+
+                        <p:menuitem value="Invoice Entry" url="/admin/invoiceentry.jsf" />
+
+                    </p:submenu>
+                    <p:submenu label="User management" icon="ui-icon-document">
+
+                        <p:menuitem value="Create User" url="/admin/register.jsf" />
+                        <p:menuitem value="Edit User" url="/admin/edituser.jsf" />
+
+                    </p:submenu>
+                    <p:submenu label="Setting" icon="ui-icon-pencil">
+
+                        <p:menuitem value="Reset Password" url="/admin/resetpassword.jsf" />
+
+                    </p:submenu>
+                </p:menu>
+            </h:form>
+        </ui:composition>	
+    </body>
+</html>
