@@ -16,12 +16,12 @@
                         background:  cyan !important;
                         border-color: cyan !important;
                         color: dodgerblue;
-
                     }
 
                     ul.ui-menu-list li a span.ui-menuitem-icon
                     {
                         color:#6ce26c !important;
+                        font-size: small;
                     }
 
                 </style>
@@ -29,28 +29,27 @@
 
 
                 <p:menubar   style="margin-top: 32px;border-color: white; margin-bottom: 0px;white-space: nowrap;width: 930px; ">
-                    <p:menuitem style="padding-right: 20px;padding-left: 10px;font-size: small"  value="Home" url="Welcome.jsf" icon="ui-icon-home" />
+                    <p:menuitem style="padding-right: 20px;padding-left: 10px;"  value="Home" url="Welcome.jsf" icon="ui-icon-home" />
 
-
-                    <p:submenu  label="Tasks" style="font-size: small" icon="ui-icon-suitcase"  >
+                    <p:submenu  label="Tasks" icon="ui-icon-suitcase" >
                         <p:menuitem value="My Task" url="Allotted.jsf" icon="ui-icon-arrowreturnthick-1-w" />
-                        <p:submenu  label="Assign To Team" style="font-size: small" icon="ui-icon-flag"  >
-                            <p:menuitem value="Allocate Task" url="Allottee.jsf" icon="ui-icon-arrowreturnthick-1-e" />
-                            <p:menuitem value="Task Status" url="Allotted.jsf" icon="ui-icon-star" />
+                        <p:submenu  label="Assign To Team" icon="ui-icon-flag">
+                            <p:menuitem value="Allocate Task" url="Allottee.jsf" icon="ui-icon-arrowreturnthick-1-e"/>
+                            <p:menuitem value="Task Status" url="Allotted.jsf" icon="ui-icon-star"/>
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu label="Change Process" style="font-size: small" icon="ui-icon-copy"   >
-                        <p:menuitem value="Billdesk" icon="ui-icon-newwin"  target="_blank" url="http://billdesk.esselgroup.com" />
-                        <p:menuitem value="Workflow" target="_blank" icon="ui-icon-newwin" url="http://14.140.252.206/webdesktop" /> 
+                    <p:submenu label="Change Process" icon="ui-icon-copy">
+                        <p:menuitem value="Billdesk" icon="ui-icon-newwin"  target="_blank" url="http://billdesk.esselgroup.com"/>
+                        <p:menuitem value="Workflow" target="_blank" icon="ui-icon-newwin" url="http://14.140.252.206/webdesktop"/> 
                     </p:submenu>
 
-                    <p:submenu label="Setting" style="font-size: small"  icon="ui-icon-gear"   > 
-                        <p:menuitem value="Profile" url="Profile.jsf" icon="ui-icon-person"  />
-                        <p:menuitem  value="Change Password" id="movieBtn"  icon="ui-icon-key"  />
+                    <p:submenu label="Setting"  icon="ui-icon-gear"> 
+                        <p:menuitem value="Profile" url="Profile.jsf" icon="ui-icon-person"/>
+                        <p:menuitem  value="Change Password" id="movieBtn"  icon="ui-icon-key"/>
 
                     </p:submenu>
-                    <p:menuitem value="Help" url="/manager/Inward Edit.jsf" icon="ui-icon-help"  />
+                    <p:menuitem value="Help" url="/manager/Inward Edit.jsf" icon="ui-icon-help" />
 
                 </p:menubar>
                 <p:overlayPanel id="reset" style="background: lemonchiffon ;border: none"  for="movieBtn"   hideEffect="fade" >                           
