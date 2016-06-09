@@ -29,7 +29,7 @@ public class Login implements Serializable {
     private String dbrole;
     private boolean loggedIn;
     private String Region;
-    private String dbsession1;
+    private String dbsession;
 
     FacesContext fCtx = FacesContext.getCurrentInstance();
     HttpSession session = SessionBean.getSession();
@@ -51,9 +51,7 @@ public class Login implements Serializable {
 
     public void setSessionId(String sessionId) {
         this.sessionId = sessionId;
-    }
-    
-    
+    }    
 
     public String getRegion() {
         return Region;
