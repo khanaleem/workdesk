@@ -28,8 +28,8 @@ public class Login implements Serializable {
     private String pass;
     private String dbrole;
     private boolean loggedIn;
-    private String Region;
-    private String dbsession;
+    //private String Region;
+    //private String dbsession;
 
     FacesContext fCtx = FacesContext.getCurrentInstance();
     HttpSession session = SessionBean.getSession();
