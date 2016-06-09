@@ -104,6 +104,7 @@ th {
     border : aqua!important;  
     font-size:1.4em!important; 
     color: midnightblue!important;
+    outline: none;
 
 }
 .ui-datatable th {

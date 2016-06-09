@@ -101,7 +101,7 @@ public class CarService {
             
             Connection con = DataConnect.getConnection();
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("Select * from Userprofile where Supervoiser='"+Supervoiser+"'");
+            ResultSet rs = st.executeQuery("Select * from WD_users where Supervoiser='"+Supervoiser+"'");
             while (rs.next()) {
                 CarService ap = new CarService();
                 ap.setFirstname(rs.getString(3));
