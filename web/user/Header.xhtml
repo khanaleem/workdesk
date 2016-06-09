@@ -14,31 +14,31 @@
                 <p:growl id="messagesheader"  sticky="false" life="2000" />
                 <h:panelGrid columns="3" >
 
-                    <p:graphicImage  value="/Logo.png"/>
+                    <p:graphicImage  value="/Logo1.png"/>
 
                     <ui:include src="/user/Menue.xhtml"  />
 
 
                     <h:panelGrid  columns="2" style=" margin: 0px;background: whitesmoke ;width: 220px"  >
                         <h:panelGrid  columns="1"  >
-                        <p:graphicImage value="/ProfilePic/#{login.imagePath}" style="height: 90px; background: whitesmoke"/> 
-                            
+                            <p:graphicImage value="/ProfilePic/#{login.imagePath}" style="border-radius: 30px;  height: 59px; background: whitesmoke"/> 
+
                         </h:panelGrid>
                         <h:panelGrid  columns="1"  >
                             <h:panelGrid  columns="2"  >
 
                                 <h:outputText  value="Welcome's:" style="color: #0066cc;   " />
                                 <h:outputText  value="#{login.user}" style="color: #0066cc;   " />
-                                 </h:panelGrid>
-                                <h:panelGrid  columns="2"  >
-                                    <h:outputText  value="Region:" style="color: #0066cc;   " />
-                                    <h:outputText   value="#{login.Region(login.user)}"  style="color: #045491; "/> 
-                                </h:panelGrid>
+                            </h:panelGrid>
+                            <h:panelGrid  columns="3"  >
+                                <h:outputText  value="Region:" style="color: #0066cc;   " />
+                                <h:outputText   value="#{login.Region(login.user)}"  style="color: #045491; "/> 
 
-                           
-                            <p:spacer/> 
-                            <p:commandButton  id="button"  value="Logout"  action="#{login.logout()}" icon="ui-icon-extlink" style="  height: 20px; border-radius: 25px;background: aqua ;"  />
-                            <p:tooltip   for="button" value="Logout" />
+                                <p:commandButton  id="button"  action="#{login.logout()}" icon="ui-icon-extlink" style="border-radius: 25px;background: aqua ;"  />
+                                <p:tooltip   for="button" value="Logout" />
+                            </h:panelGrid>
+
+
                         </h:panelGrid>
                     </h:panelGrid> 
 

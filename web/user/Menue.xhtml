@@ -28,7 +28,7 @@
 
 
 
-                <p:menubar   style="margin-top: 60px;border-color: white; margin-bottom: 0px;white-space: nowrap;width: 980px; ">
+                <p:menubar   style="margin-top: 32px;border-color: white; margin-bottom: 0px;white-space: nowrap;width: 930px; ">
                     <p:menuitem style="padding-right: 20px;padding-left: 10px;font-size: small"  value="Home" url="Welcome.jsf" icon="ui-icon-home" />
 
 
@@ -47,22 +47,22 @@
 
                     <p:submenu label="Setting" style="font-size: small"  icon="ui-icon-gear"   > 
                         <p:menuitem value="Profile" url="Profile.jsf" icon="ui-icon-person"  />
-                        <p:menuitem  value="Change Password" id="resetpass"  icon="ui-icon-key"  />
+                        <p:menuitem  value="Change Password" id="movieBtn"  icon="ui-icon-key"  />
 
                     </p:submenu>
                     <p:menuitem value="Help" url="/manager/Inward Edit.jsf" icon="ui-icon-help"  />
 
                 </p:menubar>
-                <p:overlayPanel  id="reset" style="background: lemonchiffon"  for="resetpass" hideEffect="fade" dynamic="true" >                           
+                <p:overlayPanel id="reset" style="background: lemonchiffon ;border: none"  for="movieBtn"   hideEffect="fade" >                           
 
 
-                    <h:panelGrid headerClass="Change Password" columns="1" style="background: lemonchiffon" id="matchGrid" cellpadding="5">                                
+                    <h:panelGrid columns="1" style="background: lemonchiffon" id="matchGrid" cellpadding="5">                                
 
-                        <p:inputText value="#{resetPass.olpassword}" required="true" placeholder="Current Password" label="Current Password"/>
+                        <p:password value="#{resetPass.olpassword}" required="true" requiredMessage="Current Password required" placeholder="Current Password" label="Current Password"/>
                         <p:spacer/>
-                        <p:password id="feedback" value="#{resetPass.newPassword}" match="pwd2" placeholder="New Password" label="New Password" required="true" feedback="true" />
+                        <p:password id="feedback" value="#{resetPass.newPassword}" requiredMessage="New Password required" validatorMessage="Passwords doesnt match" match="pwd2" placeholder="New Password" label="New Password" required="true" feedback="true" />
                         <p:spacer/>
-                        <p:password id="pwd2" value="#{resetPass.newPassword}" label="Confirm Password" placeholder="Confirm Password" required="true" />                       
+                        <p:password id="pwd2" value="#{resetPass.newPassword}" requiredMessage="Confirm Password required" validatorMessage="Passwords doesnt match" label="Confirm Password" placeholder="Confirm Password" required="true" />                       
                         <p:spacer/>
                         <p:commandButton style="border-radius: 25px;background: aqua " update=":formheader:messagesheader" value="Reset" action="#{resetPass.reste(login.user)}"  />
                     </h:panelGrid>
