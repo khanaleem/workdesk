@@ -224,25 +224,19 @@ public class Login implements Serializable {
             
 
         }
-
-     
+  
 
     
 
     //logout event, invalidate session
     public String logout() {
-         loggedIn=false;
+        loggedIn=false;
         session.invalidate();
         FacesMessage msg1 = new FacesMessage("Loged Out successfully", "INFO MSG");
         msg1.setSeverity(FacesMessage.SEVERITY_INFO);
         FacesContext.getCurrentInstance().addMessage(null, msg1);
         return "/login.jsf?faces-redirect=true";
-    }
-    
+    }   
      
-
-    public static void main(String[] args) {
-        Login n=new Login();
-        n.dbRole("dee");
-    }
+ 
 }
