@@ -64,49 +64,23 @@ public class CarService {
     public void setLastname(String Lastname) {
         this.Lastname = Lastname;
     }
-    
-    
-    
-     public void Supervoiser(String uName) {
-        if (uName != null) {
-            PreparedStatement ps = null;
-            Connection con = null;
-            ResultSet rs = null;
-            try {
-                con = DataConnect.getConnection();
-                if (con != null) {
-                    String sql = "UsersLogin '" + uName + "'";
-                    ps = con.prepareStatement(sql);
-                    rs = ps.executeQuery();
-                    rs.next();
-                    Supervoiser = rs.getString("firstname"); ;
-                    
-                    
-
-                }
-                rs.close();
-
-                con.close();
-            } catch (SQLException sqle) {
-                sqle.printStackTrace();
-            }
-        }
-    }
+     
+     
 
     public List<CarService> createCars(String Super) {
        
-        Supervoiser(Super);
+        
          List<CarService> list = new ArrayList<CarService>();
         try {
             
             Connection con = DataConnect.getConnection();
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("Select * from WD_users where Supervoiser='"+Supervoiser+"'");
+            ResultSet rs = st.executeQuery("Users_Manager '"+Super+"'");
             while (rs.next()) {
                 CarService ap = new CarService();
                 ap.setFirstname(rs.getString(3));
                 ap.setLastname(rs.getString(4));
-                ap.setImagePath(rs.getString(10));
+                ap.setImagePath(rs.getString("image_path"));
                 list.add(ap);
             }
 

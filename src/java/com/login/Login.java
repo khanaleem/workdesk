@@ -99,8 +99,7 @@ public class Login implements Serializable {
 
     //validate login
     public String validateUsernamePassword() throws IOException {
-        dbRole(user.trim());
-          
+        dbRole(user.trim());          
         boolean valid = LoginDAO.validate(user.trim(), pwd.trim());
         if (valid) { 
              if (dbrole.equals("u")||dbrole.equals("m")) {
@@ -165,7 +164,7 @@ public class Login implements Serializable {
                     ps = con.prepareStatement(sql);
                     rs = ps.executeQuery();
                     rs.next(); 
-                    pass = rs.getString("currentpassword");
+                    pass = rs.getString("current_password");
                     System.out.print(pass);
 
                 }
@@ -191,8 +190,8 @@ public class Login implements Serializable {
                     ps = con.prepareStatement(sql);
                     rs = ps.executeQuery();
                     rs.next();
-                    dbrole = rs.getString("usertype");
-                    ImagePath  = rs.getString(10);
+                    dbrole = rs.getString("user_type");
+                    ImagePath  = rs.getString("image_path");
                 }
                 rs.close();
 
@@ -201,33 +200,7 @@ public class Login implements Serializable {
                 sqle.printStackTrace();
             }
         }
-    }
-    public void isertses() {
-        int i = 0;        
-         
-
-            PreparedStatement ps ;
-            Connection con;
-            try {
-                con = DataConnect.getConnection();
-                if (sessionId != null) {
-                    String sql = "Update users set sessionid='"+sessionId+"' where username='"+user+"'";
-                    ps = con.prepareStatement(sql);
-                    i = ps.executeUpdate();                    
-                }
- 
-                con.close();
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
-            
-
-        }
-  
-
-    
-
+    }    
     //logout event, invalidate session
     public String logout() {
         loggedIn=false;

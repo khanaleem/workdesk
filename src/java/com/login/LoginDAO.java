@@ -18,24 +18,19 @@ public class LoginDAO {
         ResultSet rs;
         try {
             con = DataConnect.getConnection();
-//			ps = con.prepareStatement("Select username,  currentpassword from Users a inner join password b on a.userindex=b.userindex where username = ? and currentpassword = ?");
-//			ps.setString(1, user);
-//			ps.setString(2, password);
-//
-//			ResultSet rs = ps.executeQuery();
+ 
 
             if (con != null) {
                 String sql = "UsersLogin '" + user + "'";
                 ps = con.prepareStatement(sql);
                 rs = ps.executeQuery();
                 rs.next();
-                dbusername = rs.getString("userid");
-                dbpassword = rs.getString("currentpassword");
+                dbusername = rs.getString("user_id");
+                dbpassword = rs.getString("current_password");
                 System.out.print(dbpassword);
 
             }
-
-//			if (rs.next()) {
+ 
             if (user.trim().equals(dbusername.trim()) && password.trim().equals(dbpassword.trim())) {
                 return true;
             }

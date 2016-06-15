@@ -3,7 +3,7 @@ body {
     font-size: 12px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;  
-    margin: 10px;
+    margin: 0px;
 }
 
 h1 {
@@ -30,11 +30,21 @@ a:link:hover, a:visited:hover  {
 
 .ui-layout-north {
     z-index:20 !important;
-    overflow:visible !important;;
+    overflow:visible !important;
+    border-color: white;
+    border-bottom-color: #0066cc;
+    background-color: white ; 
+    padding: 0px;
+    margin: 0px;
 }
 
 .ui-layout-north .ui-layout-unit-content {
     overflow:visible !important;
+    border-color: white;
+    border-bottom-color: #0066cc;
+    background-color: white ; 
+    padding: 0px;
+    margin: 0px;
 }
 
 *
@@ -53,6 +63,7 @@ a:link:hover, a:visited:hover  {
     border-bottom-color: #0066cc;
     background-color: white ; 
     padding: 0px;
+    margin: 0px;
 }
 .ui-layout-center,.ui-layout-center .ui-layout-unit-content  {
     overflow: visible !important;

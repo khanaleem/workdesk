@@ -33,9 +33,8 @@
                     <p:submenu  label="Tasks" icon="ui-icon-suitcase" >
                         <p:menuitem value="My Task" url="Allotted.jsf" icon="ui-icon-arrowreturnthick-1-w" />
                         <p:submenu  label="Assign To Team" icon="ui-icon-flag">
-                            <p:menuitem value="Allocate Task" url="Allottee.jsf" icon="ui-icon-arrowreturnthick-1-e"/>
-                            <p:menuitem value="Task Status" url="Allotted.jsf" icon="ui-icon-star"/>
-                            <p:menuitem value="My Team" url="#" icon="ui-icon-group"/>
+                            <p:menuitem value="My Team" url="Allottee.jsf" icon="ui-icon-person"/>
+                            <p:menuitem value="Task Status" url="Allotted.jsf" icon="ui-icon-star"/> 
                         </p:submenu>
                     </p:submenu>
 
@@ -49,7 +48,7 @@
                         <p:menuitem  value="Change Password" id="movieBtn"  icon="ui-icon-key"/>
 
                     </p:submenu>
-                    <p:menuitem value="Help" url="/manager/Inward Edit.jsf" icon="ui-icon-help" />
+                    <p:menuitem value="Help" url="/manager/Inward Edit.jsf" icon="ui-icon-help" /> 
 
                 </p:menubar>
                 <p:overlayPanel id="reset" style="background: lemonchiffon ;border: none"  for="movieBtn"   hideEffect="fade" >                           
@@ -57,11 +56,11 @@
 
                     <h:panelGrid columns="1" style="background: lemonchiffon" id="matchGrid" cellpadding="5">                                
 
-                        <p:password value="#{resetPass.olpassword}" required="true" requiredMessage="Current Password required" placeholder="Current Password" label="Current Password"/>
+                        <p:password value="#{resetPass.olpassword}"   requiredMessage="Current Password required" placeholder="Current Password" label="Current Password"/>
                         <p:spacer/>
-                        <p:password id="feedback" value="#{resetPass.newPassword}" requiredMessage="New Password required" validatorMessage="Passwords doesnt match" match="pwd2" placeholder="New Password" label="New Password" required="true" feedback="true" />
+                        <p:password id="feedback" value="#{resetPass.newPassword}" requiredMessage="New Password required" validatorMessage="Passwords doesnt match" match="pwd2" placeholder="New Password" label="New Password"   feedback="true" />
                         <p:spacer/>
-                        <p:password id="pwd2" value="#{resetPass.newPassword}" requiredMessage="Confirm Password required" validatorMessage="Passwords doesnt match" label="Confirm Password" placeholder="Confirm Password" required="true" />                       
+                        <p:password id="pwd2" value="#{resetPass.newPassword}" requiredMessage="Confirm Password required" validatorMessage="Passwords doesnt match" label="Confirm Password" placeholder="Confirm Password" />                       
                         <p:spacer/>
                         <p:commandButton style="border-radius: 25px;background: aqua " update=":formheader:messagesheader" value="Reset" action="#{resetPass.reste(login.user)}"  />
                     </h:panelGrid>
